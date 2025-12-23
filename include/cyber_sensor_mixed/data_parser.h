@@ -1,6 +1,6 @@
 #pragma once
 
-#include "cyber_sensor_fixed/data_structs.h"
+#include "cyber_sensor_mixed/data_structs.h"
 
 #include <cstdint>
 #include <iostream>

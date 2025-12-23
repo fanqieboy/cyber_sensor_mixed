@@ -3,12 +3,12 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
-frame_id = 'cyber_sensor_fixed'
+frame_id = 'cyber_sensor_mixed'
 local_ip = '192.168.1.5'
 
-package_name = 'cyber_sensor_fixed'
+package_name = 'cyber_sensor_mixed'
 cur_path = get_package_share_directory(package_name)
-rviz_config_path = os.path.join(cur_path, 'config', 'cyber_sensor_fixed_ROS2.rviz')
+rviz_config_path = os.path.join(cur_path, 'config', 'cyber_sensor_mixed_ROS2.rviz')
 
 cyber_sensor_ros2_params = [
     {"frame_id": frame_id},
@@ -18,7 +18,7 @@ cyber_sensor_ros2_params = [
 def generate_launch_description():
     cyber_sensor_driver = Node(
         package=package_name,
-        executable='cyber_sensor_fixed_node',
+        executable='cyber_sensor_mixed_node',
         output='screen',
         parameters=cyber_sensor_ros2_params
     )

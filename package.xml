@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>cyber_sensor_fixed</name>
+  <name>cyber_sensor_mixed</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="lx@todo.todo">lx</maintainer>

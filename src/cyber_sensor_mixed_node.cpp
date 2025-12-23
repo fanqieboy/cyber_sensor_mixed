@@ -1,16 +1,16 @@
-#include "cyber_sensor_fixed/cyber_sensor_fixed_node.hpp"
+#include "cyber_sensor_mixed/cyber_sensor_mixed_node.hpp"
 
 #include <cmath>
 
 namespace CyberSensor {
 
-CyberSensorFixedNode::CyberSensorFixedNode(const std::string& node_name)
+CyberSensorMixedNode::CyberSensorMixedNode(const std::string& node_name)
     : Node(node_name)
 {
     RCLCPP_INFO(this->get_logger(), "Starting Lidar Driver Node...");
 
     this->declare_parameter<std::string>("local_ip", "192.168.1.5");
-    this->declare_parameter<std::string>("frame_id", "cyber_sensor_fixed");
+    this->declare_parameter<std::string>("frame_id", "cyber_sensor_mixed");
 
     this->get_parameter("local_ip", local_ip_);
     this->get_parameter("frame_id", frame_id_);
@@ -24,9 +24,9 @@ CyberSensorFixedNode::CyberSensorFixedNode(const std::string& node_name)
 
     udp_socket_ = std::make_unique<UdpSocket>(
         local_ip_,
-        std::bind(&CyberSensorFixedNode::pclDataHandler, this, 
+        std::bind(&CyberSensorMixedNode::pclDataHandler, this, 
                   std::placeholders::_1, std::placeholders::_2),
-        std::bind(&CyberSensorFixedNode::imuDataHandler, this, 
+        std::bind(&CyberSensorMixedNode::imuDataHandler, this, 
                   std::placeholders::_1)
     );
 
@@ -35,7 +35,7 @@ CyberSensorFixedNode::CyberSensorFixedNode(const std::string& node_name)
     RCLCPP_INFO(this->get_logger(), "Lidar Driver Node ready.");
 }
 
-void CyberSensorFixedNode::pclDataHandler(const PointsData line0, const PointsData line1)
+void CyberSensorMixedNode::pclDataHandler(const PointsData line0, const PointsData line1)
 {
     /*----------2d----------*/
     auto pcl_2d_msg = std::make_unique<sensor_msgs::msg::LaserScan>();
@@ -151,7 +151,7 @@ void CyberSensorFixedNode::pclDataHandler(const PointsData line0, const PointsDa
     // std::cout << line0.points.size() << " "<< line1.points.size() << std::endl;
 }
 
-void CyberSensorFixedNode::imuDataHandler(const ImuData imu)
+void CyberSensorMixedNode::imuDataHandler(const ImuData imu)
 {
     auto imu_msg = std::make_unique<sensor_msgs::msg::Imu>();
 
@@ -185,7 +185,7 @@ int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
     
-    auto driver_node = std::make_shared<CyberSensor::CyberSensorFixedNode>("cyber_sensor_fixed_node");
+    auto driver_node = std::make_shared<CyberSensor::CyberSensorMixedNode>("cyber_sensor_mixed_node");
 
     rclcpp::spin(driver_node);
 

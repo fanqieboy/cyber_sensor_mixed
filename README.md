@@ -1,6 +1,6 @@
 # Cyber Sensor ROS2 Driver
 
-Cyber Sensor Fixed Driver is the driver package used to connect multi-functional LiDAR products produced by Cyber Sensor.
+Cyber Sensor Mixed Driver is the driver package used to connect multi-functional LiDAR products produced by Cyber Sensor.
 
 ## 1. OS requirements
   * Ubuntu 20.04 for ROS2 Foxy;
@@ -9,7 +9,7 @@ Cyber Sensor Fixed Driver is the driver package used to connect multi-functional
 ## 2. Clone Cyber Sensor ROS2 driver source code
 
 ```shell
-git clone https://github.com/fanqieboy/cyber_sensor_fixed.git cybersensor_ws/src/cyber_sensor_fixed
+git clone https://github.com/fanqieboy/cyber_sensor_Mixed.git cybersensor_ws/src/cyber_sensor_fixed
 ```
 
 ## 3. Build ROS2 driver
@@ -32,5 +32,5 @@ colcon build
 ```shell
 cd /path/to/your/cybersensor_ws
 source install/setup.sh
-ros2 launch cyber_sensor_fixed rviz_fixed_launch.py
+ros2 launch cyber_sensor_fixed rviz_Mixed_launch.py
 ```

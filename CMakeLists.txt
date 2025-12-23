@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(cyber_sensor_fixed)
+project(cyber_sensor_mixed)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
@@ -21,7 +21,7 @@ find_package(Threads REQUIRED)
 # 2. 构建可执行文件 (Build Executable)
 # -----------------------------------------------------------
 set(SOURCE_FILES
-  src/cyber_sensor_fixed_node.cpp
+  src/cyber_sensor_mixed_node.cpp
   src/udp_socket.cpp
 )
 

@@ -1,9 +1,9 @@
-#ifndef CYBER_SENSOR_FIXED_NODE_HPP
-#define CYBER_SENSOR_FIXED_NODE_HPP
+#ifndef CYBER_SENSOR_MIXED_NODE_HPP
+#define CYBER_SENSOR_MIXED_NODE_HPP
 
 #include "rclcpp/rclcpp.hpp"
-#include "cyber_sensor_fixed/udp_socket.h"
-#include "cyber_sensor_fixed/data_structs.h"
+#include "cyber_sensor_mixed/udp_socket.h"
+#include "cyber_sensor_mixed/data_structs.h"
 
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "sensor_msgs/msg/point_cloud2.hpp"
@@ -12,10 +12,10 @@
 
 namespace CyberSensor{
 
-class CyberSensorFixedNode : public rclcpp::Node
+class CyberSensorMixedNode : public rclcpp::Node
 {
 public:
-    CyberSensorFixedNode(const std::string& node_name);
+    CyberSensorMixedNode(const std::string& node_name);
 
 private:
     std::unique_ptr<UdpSocket> udp_socket_; 
@@ -33,4 +33,4 @@ private:
 
 }
 
-#endif // CYBER_SENSOR_FIXED_NODE_HPP
+#endif // CYBER_SENSOR_MIXED_NODE_HPP
